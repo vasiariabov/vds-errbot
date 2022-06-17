@@ -1,0 +1,9 @@
+[Core]
+Name = Vdsworker
+Module = vdsworker
+
+[Documentation]
+Description = vds worker for creating servers.
+
+[Python]
+Version = 3
