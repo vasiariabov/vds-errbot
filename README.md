@@ -1,8 +1,19 @@
 # vds_errbot
+*Account*
+    /bot account
 
-/bot account
+Servers
+    /bot servers
 
-/bot servers
+*Background*
+    /bot locations
+    /bot images 
 
-/bot images 
+Billing
+    /bot balance
+
+SSHkeys
+    /bot sshkeys
+
+
 
