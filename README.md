@@ -4,24 +4,24 @@ ChatOps bot for monitoring, creating servers in VDS by selectel provider
 
 **Account**
     
-    /bot account
+    /account
 
 Servers
     
-    /bot servers
+    /servers
 
 **Background**
     
-    /bot locations
-    /bot images 
+    /locations
+    /images 
 
 Billing
     
-    /bot balance
+    /balance
 
 SSHkeys
     
-    /bot sshkeys
+    /sshkeys
 
 
 

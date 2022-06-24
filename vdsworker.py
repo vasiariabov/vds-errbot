@@ -9,7 +9,7 @@ from errbot import BotPlugin, botcmd, Message, arg_botcmd, re_botcmd
 class Vdsworker(BotPlugin):  
    
     @botcmd  
-    def bot_account(self, msg, base ):  
+    def account(self, msg, base ):  
         return self.__account(msg, ) 
     @staticmethod 
     def __account(msg, ):
@@ -21,7 +21,7 @@ class Vdsworker(BotPlugin):
         return(account_data) 
     
     @botcmd  
-    def bot_servers(self, msg, base ):  
+    def servers(self, msg, base ):  
         return self.__servers(msg, ) 
     @staticmethod 
     def __servers(msg, ):
@@ -33,7 +33,7 @@ class Vdsworker(BotPlugin):
         return(data)     
 
     @botcmd  
-    def bot_locations(self, msg, base ):  
+    def locations(self, msg, base ):  
         return self.__locations(msg, ) 
     @staticmethod 
     def __locations(msg, ):
@@ -45,7 +45,7 @@ class Vdsworker(BotPlugin):
         return(data)          
 
     @botcmd  
-    def bot_images(self, msg, base ):  
+    def images(self, msg, base ):  
         return self.__images(msg, ) 
     @staticmethod 
     def __images(msg, ):
@@ -57,7 +57,7 @@ class Vdsworker(BotPlugin):
         return(data)     
 
     @botcmd  
-    def bot_balance(self, msg, base ):  
+    def balance(self, msg, base ):  
         return self.__balance(msg, ) 
     @staticmethod 
     def __balance(msg, ):
@@ -69,24 +69,24 @@ class Vdsworker(BotPlugin):
         return(data)     
         
     @botcmd  
-    def bot_sshkeys(self, msg, base ):  
+    def sshkeys(self, msg, base ):  
         return self.__sshkeys(msg, ) 
     @staticmethod 
     def __sshkeys(msg, ):
         newHeaders = {'X-Token': os.getenv("VDS_TOKEN")}
-        response = requests.get('https://api.vscale.io/v1/billing/sshkeys',                        
+        response = requests.get('https://api.vscale.io/v1/sshkeys',                        
                                         headers=newHeaders)
         json_data = response.json()        
         data = (json.dumps(json_data, indent=4))    
         return(data)          
     
     @botcmd  
-    def bot_locations(self, msg, base ):  
+    def locations(self, msg, base ):  
         return self.__locations(msg, ) 
     @staticmethod 
     def __locations(msg, ):
         newHeaders = {'X-Token': os.getenv("VDS_TOKEN")}
-        response = requests.get('https://api.vscale.io/v1/billing/locations',                        
+        response = requests.get('https://api.vscale.io/v1/locations',                        
                                         headers=newHeaders)
         json_data = response.json()        
         data = (json.dumps(json_data, indent=4))    
