@@ -15,13 +15,16 @@ Servers
     /locations
     /images 
 
-Billing
-    
-    /balance
-
 SSHkeys
     
     /sshkeys
+
+**Billing**
+    
+    /balance
+    /payments
+    /consumption
+
 
 
 
