@@ -18,6 +18,7 @@ Servers
 SSHkeys
     
     /sshkeys
+    /delete sshkey $sshkey_id
 
 **Billing**
     

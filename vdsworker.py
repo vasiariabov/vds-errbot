@@ -76,7 +76,24 @@ class Vdsworker(BotPlugin):
         json_data = response.json()        
         data = (json.dumps(json_data, indent=4))    
         return(data)          
-             
+    
+
+    @arg_botcmd("key_id", type=str) 
+    def delete_sshkey(self, msg, key_id ):  
+        return self.__delete_sshkey(msg, key_id ) 
+    @staticmethod 
+    def __delete_sshkey(msg, key_id ):
+        newHeaders = {'X-Token': os.getenv("VDS_TOKEN"),
+                    'Content-Type': 'application/json;charset=UTF-8'}
+        response = requests.delete(f'https://api.vscale.io/v1/sshkeys/{key_id}',                        
+                                        headers=newHeaders)
+        if response.status_code != 204:                                
+            json_data = response.json()        
+            data = (json.dumps(json_data, indent=4))    
+            return(data)         
+        else:
+            return(f'key with id {key_id} deleted' )
+
 
 #Billing
 
