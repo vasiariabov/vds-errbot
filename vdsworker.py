@@ -78,6 +78,28 @@ class Vdsworker(BotPlugin):
         return(data)          
     
 
+    @arg_botcmd("key_p1", type=str) 
+    @arg_botcmd("key_p2", type=str) 
+    @arg_botcmd("key_p3", type=str) 
+    @arg_botcmd("key_p4", type=str) 
+    
+    def sshkey(self, msg, key_p1, key_p2, key_p3, key_p4 ):  
+        return self.__sshkey(msg, key_p1, key_p2, key_p3, key_p4 ) 
+    @staticmethod 
+    def __sshkey(msg,key_p1, key_p2, key_p3, key_p4  ):
+        newHeaders = {'X-Token': os.getenv("VDS_TOKEN"),
+                    'Content-Type': 'application/json;charset=UTF-8'}
+        key = key_p4+" "+key_p3+" "+key_p2
+        newData = {"key": key,"name": key_p1 }                     
+        response = requests.post('https://api.vscale.io/v1/sshkeys',                        
+                                        headers=newHeaders,
+                                        json=newData )  
+        json_data = response.json()        
+        data = (json.dumps(json_data, indent=4))    
+        return(data)                                          
+                                     
+    
+    
     @arg_botcmd("key_id", type=str) 
     def delete_sshkey(self, msg, key_id ):  
         return self.__delete_sshkey(msg, key_id ) 

@@ -15,9 +15,10 @@ Servers
     /locations
     /images 
 
-SSHkeys
+**SSHkeys**
     
     /sshkeys
+    /sshkey $sshkey $sshkey_name
     /delete sshkey $sshkey_id
 
 **Billing**
