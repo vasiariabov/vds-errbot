@@ -17,9 +17,9 @@ Servers
 
 **Configurations**
 
-   /rplans
-   /prices
-   
+    /rplans
+    /prices
+
 **SSHkeys**
     
     /sshkeys
