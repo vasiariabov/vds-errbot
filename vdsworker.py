@@ -63,6 +63,32 @@ class Vdsworker(BotPlugin):
         data = (json.dumps(json_data, indent=4))    
         return(data)    
 
+#Configurations
+
+    @botcmd  
+    def rplans(self, msg, base ):  
+        return self.__rplans(msg, ) 
+    @staticmethod 
+    def __rplans(msg, ):
+        newHeaders = {'X-Token': os.getenv("VDS_TOKEN")}
+        response = requests.get('https://api.vscale.io/v1/rplans',                        
+                                        headers=newHeaders)
+        json_data = response.json()        
+        account_data = (json.dumps(json_data, indent=4))    
+        return(account_data) 
+
+    @botcmd  
+    def prices(self, msg, base ):  
+        return self.__prices(msg, ) 
+    @staticmethod 
+    def __prices(msg, ):
+        newHeaders = {'X-Token': os.getenv("VDS_TOKEN")}
+        response = requests.get('https://api.vscale.io/v1/billing/prices',                        
+                                        headers=newHeaders)
+        json_data = response.json()        
+        account_data = (json.dumps(json_data, indent=4))    
+        return(account_data) 
+
 #SSHkeys
 
     @botcmd  

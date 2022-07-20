@@ -15,6 +15,11 @@ Servers
     /locations
     /images 
 
+**Configurations**
+
+   /rplans
+   /prices
+   
 **SSHkeys**
     
     /sshkeys
