@@ -10,6 +10,12 @@ Servers
     
     /servers
 
+ServerTags   
+
+    /tag $tag_name $[scalets_id]
+    /tags
+    /taginfo $tagid
+
 **Background**
     
     /locations

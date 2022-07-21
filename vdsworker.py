@@ -34,7 +34,69 @@ class Vdsworker(BotPlugin):
                                         headers=newHeaders)
         json_data = response.json()        
         data = (json.dumps(json_data, indent=4))    
-        return(data)     
+        return(data)  
+
+#ServerTags
+
+    @arg_botcmd("tag_scalets", type=str) 
+    @arg_botcmd("tag_name", type=str) 
+    def tag(self, msg, tag_scalets, tag_name):  
+        return self.__tag(msg, tag_scalets, tag_name ) 
+    @staticmethod 
+    def __tag(msg,tag_scalets, tag_name ):
+        newHeaders = {'X-Token': os.getenv("VDS_TOKEN"),
+                    'Content-Type': 'application/json;charset=UTF-8'}
+        
+        newData = {"name": tag_name,"scalets": tag_scalets }                     
+        response = requests.post('https://api.vscale.io/v1/scalets/tags',                        
+                                        headers=newHeaders,
+                                        json=newData )  
+        json_data = response.json()        
+        data = (json.dumps(json_data, indent=4))    
+        return(data)    
+
+    @botcmd  
+    def tags(self, msg, base ):  
+        return self.__tags(msg, ) 
+    @staticmethod 
+    def __tags(msg, ):
+        newHeaders = {'X-Token': os.getenv("VDS_TOKEN")}
+        response = requests.get('https://api.vscale.io/v1/scalets/tags',                        
+                                        headers=newHeaders)
+        json_data = response.json()        
+        data = (json.dumps(json_data, indent=4))    
+        return(data) 
+
+    @arg_botcmd("tag_id", type=str) 
+    def taginfo(self, msg, tag_id):  
+        return self.__taginfo(msg, tag_id ) 
+    @staticmethod 
+    def __taginfo(msg,tag_id):
+        newHeaders = {'X-Token': os.getenv("VDS_TOKEN"),
+                    'Content-Type': 'application/json;charset=UTF-8'}                       
+        response = requests.get(f'https://api.vscale.io/v1/scalets/tags/{tag_id}',                        
+                                        headers=newHeaders)  
+        json_data = response.json()        
+        data = (json.dumps(json_data, indent=4))    
+        return(data)    
+
+    @arg_botcmd("tag_id", type=str) 
+    @arg_botcmd("tag_new_name", type=str) 
+    @arg_botcmd("tag_new_scalets", type=str) 
+    def tagnew(self, msg, tag_id, tag_new_name, tag_new_scalets):  
+        return self.__tagnew(msg, tag_id, tag_new_name, tag_new_scalets ) 
+    @staticmethod 
+    def __tagnew(msg,tag_id, tag_new_name, tag_new_scalets):
+        newHeaders = {'X-Token': os.getenv("VDS_TOKEN"),
+                    'Content-Type': 'application/json;charset=UTF-8'}  
+        newData = {"name": tag_new_name,"scalets": tag_new_scalets }                                           
+        response = requests.post(f'https://api.vscale.io/v1/scalets/tags/{tag_id}',                        
+                                        headers=newHeaders,
+                                        json=newData     ) 
+        
+        json_data = response.json()        
+        data = (json.dumps(json_data, indent=4))    
+        return(data)         
 
 
 #Background
