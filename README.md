@@ -15,6 +15,7 @@ ServerTags
     /tag $tag_name $[scalets_id]
     /tags
     /taginfo $tagid
+    /tagnew $tah_new_name $tag_new_scalet $tag_id
 
 **Background**
     
